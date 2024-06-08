@@ -22,6 +22,7 @@ class Task(Base):
         TIMESTAMP(timezone=True), default=func.current_timestamp()
     )
     assignee: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    project_id: Mapped[int] = mapped_column(ForeignKey("projects.id"), nullable=False)
 
     def __repr__(self):
-        return f"<User {self.username}>"
+        return f"<Task(name={self.name}, status={self.status}, start_date={self.start_date}, end_date={self.end_date})>"

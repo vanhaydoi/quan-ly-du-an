@@ -24,12 +24,12 @@ class LoginView(QWidget):
         username = self.userName.text()
         password = self.passWord.text()
 
-        print(username, password)
-
         result = self.authController.login(username, password)
 
         # Kiểm tra đăng nhập
         if result:
+            with open("current_user.txt", "w") as f:
+                f.write(str(result.id))
             QMessageBox.information(self, "Login output", "Login succsess")
             widget.setCurrentIndex(2)
         else:

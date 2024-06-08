@@ -10,11 +10,13 @@ class AuthController:
 
     def login(self, username: str, password: str) -> bool:
         user = (
-            self.db.query(User).filter_by(username=username, password=password).first()
+            self.db.query(User)
+            .filter_by(username=username, password=password, is_manager=True)
+            .first()
         )
         if user:
-            return True
-        return False
+            return user
+        return None
 
     def register(self, username: str, password: str, email: str) -> bool:
         user = self.db.query(User).filter_by(username=username).first()
