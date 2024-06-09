@@ -18,7 +18,7 @@ class TaskView(QMainWindow):
         self.table_Cong_viec.itemChanged.connect(self.handleEditTask)
         self.back_2.clicked.connect(self.handleBackToHome)
         self.delete_cong_viec.clicked.connect(self.handleDeleteTask)
-        self.Cong_viec.clicked.connect(self.handleChangeToEmployeeView)
+        self.Nhan_vien.clicked.connect(self.handleChangeToEmployeeView)
 
         self.handleSearchTask()
 
@@ -29,6 +29,8 @@ class TaskView(QMainWindow):
         keyword = self.get_cong_viec.text()
 
         tasks = self.taskController.search(keyword, self.project_id)
+
+        self.table_Cong_viec.clear()
         for task in tasks:
             self.table_Cong_viec.insertRow(self.table_Cong_viec.rowCount())
             self.table_Cong_viec.setItem(

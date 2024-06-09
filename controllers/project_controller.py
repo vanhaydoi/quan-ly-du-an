@@ -43,5 +43,5 @@ class ProjectController:
         return True
 
     def search_staff(self, keyword: str):
-        list_staff = self.db.query(User).filter(User.name.like(f"%{keyword}%")).all()
+        list_staff = self.db.query(User).filter(User.email.like(f"%{keyword}%")).all()
         return list_staff

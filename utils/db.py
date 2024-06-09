@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from Model.Base import Base
 
 engine = create_engine(
-    "mysql+pymysql://root:newpassword@localhost/qldt_abc?charset=utf8mb4",
+    "mysql+pymysql://root:123456@localhost/qlda_abc?charset=utf8mb4",
     echo=True,
 )
 
